@@ -5,6 +5,10 @@ Your solutions should use the map and filter functions,
 and not for loops or list comprehensions.
 '''
 
+# filter() keeps items that match a condition
+# map() transforms items in a list into something else
+# lambda is a way to create a function in one line of code
+
 def evens(n):
     '''
     Returns a list of even numbers from 0 to n inclusive.
@@ -20,11 +24,13 @@ def evens(n):
     >>> evens(-1)
     []
     '''
-    temp = []
-    for x in range(n+1):
-        if x % 2 == 0:
-            temp.append(x)
-    return temp
+    return list(filter(lambda x: x % 2 == 0, range(n + 1)))
+
+    # temp = []
+    # for x in range(n+1):
+    #     if x % 2 == 0:
+    #         temp.append(x)
+    # return temp
 
 def threes(n):
     '''
@@ -41,11 +47,13 @@ def threes(n):
     >>> threes(50)
     [3, 13, 23, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 43]
     '''
-    temp = []
-    for x in range(n+1):
-        if '3' in str(x):
-            temp.append(x)
-    return temp
+    return list(filter(lambda x: "3" in str(x), range(n+1)))
+
+    # temp = []
+    # for x in range(n+1):
+    #     if '3' in str(x):
+    #         temp.append(x)
+    # return temp
 
 
 def small_words(text):
@@ -64,12 +72,14 @@ def small_words(text):
     >>> small_words('a big word is bad')
     ['a', 'big', 'word', 'is', 'bad']
     '''
-    words = text.split()
-    temp = []
-    for x in words:
-        if len(x) < 5:
-            temp.append(x)
-    return temp
+    return list(filter(lambda x: len(x) < 5, text.split()))
+
+    # words = text.split()
+    # temp = []
+    # for x in words:
+    #     if len(x) < 5:
+    #         temp.append(x)
+    # return temp
             
 
 
@@ -87,10 +97,12 @@ def squares(n):
     >>> squares(10)
     [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     '''
-    temp = []
-    for x in range(n):
-        temp.append((x+1)**2)
-    return temp    
+    return list(map(lambda x: (x+1)**2, range(n)))
+
+    # temp = []
+    # for x in range(n):
+    #     temp.append((x+1)**2)
+    # return temp    
 
 
 def lengths(strings):
@@ -104,6 +116,8 @@ def lengths(strings):
     >>> lengths(['this','is','a','test'])
     [4, 2, 1, 4]
     '''
-    for i in range(len(strings)):
-        strings[i] = len(strings[i])
-    return strings
+    return list(map(lambda x: len(x), strings))
+
+    # for i in range(len(strings)):
+    #     strings[i] = len(strings[i])
+    # return strings
