@@ -50,7 +50,7 @@ def test_every_feature_on_one_line():
     expected = (
         'See the <a href="https://x.com">docs</a> '
         'for <b>more</b> <i>info</i>.'
-        )
+    )
     assert compile_all(line) == expected
 
 
