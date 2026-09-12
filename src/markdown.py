@@ -1,7 +1,10 @@
 '''
-All the functions in this file convert markdown syntax into html.
-Implementing these functions will give you practice learning the correct markdown syntax.
+All the functions in this file convert markdown syntax
+into html.
+Implementing these functions will give you practice
+learning the correct markdown syntax.
 '''
+
 
 def compile_italic_underscore(line):
     '''
@@ -19,7 +22,7 @@ def compile_italic_underscore(line):
     '_'
     >>> compile_italic_underscore('_a_ and _b_')
     '<i>a</i> and <i>b</i>'
-    >>> compile_italic_underscore('_a_ and _b')          # odd count: last one is literal
+    >>> compile_italic_underscore('_a_ and _b')
     '<i>a</i> and _b'
     >>> compile_italic_underscore('no underscores here')
     'no underscores here'
@@ -92,20 +95,19 @@ def compile_links(line):
             link_text_close = line.find("]", i)
             link_open = line.find("(", link_text_close)
             link_close = line.find(")", link_open)
-            #print(link_text_open, link_text_close, link_open, link_close)
+            # print(link_text_open, link_text_close, link_open, link_close)
             if link_text_close + 1 == link_open and link_close != -1:
                 temp_text = '<a href="' + line[link_open + 1:link_close] + '">'
-                temp_text += line[link_text_open+1:link_text_close]
+                temp_text += line[link_text_open + 1:link_text_close]
                 temp_text += "</a>"
-                #print(temp_text)
+                # print(temp_text)
                 full_text += temp_text
                 i = link_close + 1
                 continue
             full_text += line[i]
         else:
             full_text += line[i]
-            #print(line[i])
+            # print(line[i])
         i += 1
 
     return full_text
-

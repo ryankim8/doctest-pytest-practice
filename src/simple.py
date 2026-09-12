@@ -9,6 +9,7 @@ and not for loops or list comprehensions.
 # map() transforms items in a list into something else
 # lambda is a way to create a function in one line of code
 
+
 def evens(n):
     '''
     Returns a list of even numbers from 0 to n inclusive.
@@ -32,9 +33,11 @@ def evens(n):
     #         temp.append(x)
     # return temp
 
+
 def threes(n):
     '''
-    Returns a list of all numbers from 0 to n inclusive that contain the digit 3.
+    Returns a list of all numbers from 0 to n inclusive
+    that contain the digit 3.
 
     >>> threes(2)
     []
@@ -58,10 +61,12 @@ def threes(n):
 
 def small_words(text):
     '''
-    Returns a list of all words in the input text that are less than 5 characters long.
+    Returns a list of all words in the input text that are
+    less than 5 characters long.
 
     HINT:
-    Recall that text.split() converts the text variable into a list of words.
+    Recall that text.split() converts the text variable into
+    a list of words.
 
     >>> small_words('this is a simple test case')
     ['this', 'is', 'a', 'test', 'case']
@@ -80,7 +85,6 @@ def small_words(text):
     #     if len(x) < 5:
     #         temp.append(x)
     # return temp
-            
 
 
 def squares(n):
@@ -102,12 +106,13 @@ def squares(n):
     # temp = []
     # for x in range(n):
     #     temp.append((x+1)**2)
-    # return temp    
+    # return temp
 
 
 def lengths(strings):
     '''
-    Given a list of strings, returns a list of the lengths of the corresponding strings.
+    Given a list of strings, returns a list of the
+    lengths of the corresponding strings.
 
     >>> lengths([])
     []
