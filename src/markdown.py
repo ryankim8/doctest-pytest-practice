@@ -26,6 +26,10 @@ def compile_italic_underscore(line):
     >>> compile_italic_underscore('')
     ''
     '''
+    replacements = line.count('_') // 2
+    for x in range(replacements):
+        line = line.replace('_', '<i>', 1)
+        line = line.replace('_', '</i>', 1)
     return line
 
 
@@ -50,6 +54,10 @@ def compile_bold_stars(line):
     >>> compile_bold_stars('***')
     '***'
     '''
+    replacements = line.count("**") // 2
+    for x in range(replacements):
+        line = line.replace('**', '<b>', 1)
+        line = line.replace('**', '</b>', 1)
     return line
 
 
@@ -76,4 +84,28 @@ def compile_links(line):
     >>> compile_links('nothing here](oops)')
     'nothing here](oops)'
     '''
-    return line
+    i = 0
+    full_text = ''
+    while i < len(line):
+        if line[i] == "[":
+            link_text_open = i
+            link_text_close = line.find("]", i)
+            link_open = line.find("(", link_text_close)
+            link_close = line.find(")", link_open)
+            #print(link_text_open, link_text_close, link_open, link_close)
+            if link_text_close + 1 == link_open and link_close != -1:
+                temp_text = '<a href="' + line[link_open + 1:link_close] + '">'
+                temp_text += line[link_text_open+1:link_text_close]
+                temp_text += "</a>"
+                #print(temp_text)
+                full_text += temp_text
+                i = link_close + 1
+                continue
+            full_text += line[i]
+        else:
+            full_text += line[i]
+            #print(line[i])
+        i += 1
+
+    return full_text
+
